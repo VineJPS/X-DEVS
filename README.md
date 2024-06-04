@@ -1,2 +1,3 @@
 # Curso
-Projeto do curso dev em dobro, semana do zero ao programadaor
+## Projeto do curso dev em dobro
+### Semana do zero ao programadaor
