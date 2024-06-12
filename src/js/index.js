@@ -1,30 +1,33 @@
-const btnAvanca = document.getElementById("btn-avanca");
-const btnVolta = document.getElementById("btn-volta")
+const btnAvancar = document.getElementById("btn-avanca");
+const btnVoltar = document.getElementById("btn-volta");
 let cartaoAtual = 0;
 const cartoes = document.querySelectorAll(".cartao");
 
-btnAvanca.addEventListener('click', function(){
+btnAvancar.addEventListener("click", function () {
+	const ehUltimoCartao = cartaoAtual === cartoes.length - 1;
+	if (ehUltimoCartao) return;
 
-    if(cartaoAtual === cartaoAtual.length -1) return;
+	esconderCartaoSelecionado();
 
-    
-    const cartaoSelecionado = document.querySelector(".selecionado")
-    cartaoSelecionado.classList.remove("selecionado")
+	cartaoAtual++;
+	mostrarCartao();
+});
 
-    cartaoAtual++;
-    cartoes[cartaoAtual].classList.add("selecionado")
+btnVoltar.addEventListener("click", function () {
+	const ehPrimeiroCartao = cartaoAtual === 0;
+	if (ehPrimeiroCartao) return;
 
+	esconderCartaoSelecionado();
 
-})
+	cartaoAtual--;
+	mostrarCartao();
+});
 
-btnVolta.addEventListener('click', function(){
-    if(cartaoSelecionado === 0) return;
+function mostrarCartao() {
+	cartoes[cartaoAtual].classList.add("selecionado");
+}
 
-    const cartaoSelecionado = document.querySelector(".selecionado")
-    cartaoSelecionado.classList.remove("selecionado")
-
-    cartaoAtual--;
-    cartoes[cartaoAtual].classList.add("selecionado")
-
-
-})
+function esconderCartaoSelecionado() {
+	const cartaoSelecionado = document.querySelector(".selecionado");
+	cartaoSelecionado.classList.remove("selecionado");
+}
